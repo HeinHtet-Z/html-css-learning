@@ -1,0 +1,119 @@
+OR  ==> true || Something ==> true
+    ==> false || Something ==> Something
+    ==> downside ==> It is not work for falsy value. (e.g. 0, null, undefined,...)
+
+First-Defined (??) (“nullish coalescing” operator)
+    ==> null (or) undefined ?? SomeValue ==> SomeValue
+    ==> OtherValue ?? SomeValue ==> OtherValue
+    ==> use case ==> to set default value
+
+delete operator
+    ==> Deleting an array element leaves a “hole” in the array and does not change the array’s length.
+    ==> use case ==> It is used to delete data that does not need to be sent to severside.
+
+Comma operator
+    ==> left to right ==> return right operand (e.g. "a = (b = 10, c = 20);" ==> "a = 20;" )
+
+Loop
+    ==> two type ==> counter control & condition control
+    ==> counter control ==> for
+    ==> condition control ==> while, do while
+
+for/of
+    ==> for/of loop works with iterable objects.(e.g. arrays, set, map, string)
+    ==> use case ==> for/of loop use to read array value not for write. If you want to write use for loop.
+                 ==> for/of loop use to check objects key and value.
+    ==> use const in for/of to avoid copy semantic problem.
+
+Set
+    ==> no duplicate and unique.
+---------------------------------------------------------------------------------------------------
+
+Day_13
+---------
+Objects
+    ==> Creating objects ==> object literals, creating objects with new keyword
+    ==> object literals ==> let empty = {}; // An object with no properties, let point = { x: 0, y: 0 }; // Two numeric properties
+    ==> creating objects with new ==> let o = new Object(); // Create an empty object: same as {}.
+
+Prototypes
+    ==> Prototypes == Parents Objects
+    ==> Every object in JavaScript has a built-in property, which is called its prototype.
+    ==> Prototype chain ==> how objects inherit properties and methods from their prototypes.
+
+Object.create()
+    ==> Object.create() creates a new object ==> let obj2 = Object.create(obj); ==> obj is Parents objects.
+
+Querying and Setting Properties
+    ==> To obtain the value of a property, use the dot (.) or square bracket([]) operators.
+    ==> Dot (.) is for normal properties name.
+    ==> Square bracket([]) is the name for abnormal properties like "main title": "JavaScript", for: "all audiences",...
+
+Objects As Associative Arrays
+    ==> JavaScript objects are associative arrays.
+    ==> Associative arrays are basically objects in JavaScript where indexes are replaced by user-defined keys like Map.
+    ==> An associative array is an array with string keys rather than numeric keys.
+    ==> They do not have a length property like a normal array and cannot be traversed using a normal for loop.
+    ==> Example : let obj = { 0 : 12, 1 : 13}; ==> 0 and 1 are not index. They are user-defined keys.
+
+Property Access Errors
+    ==> book.subtitle // => undefined: property doesn't exist
+    ==> let len = book.subtitle.length; // !TypeError: undefined doesn't have length
+    ==> Ways to guard against this kind of problem
+        ==> let surname = book?.author?.surname; ==> Modern JavaScript
+        ==> let surname = book && book.author && book.author.surname;
+
+Testing Properties
+    ==> 'Properties('name', 'age',...)' in Objects ==> Check the property of objects. Property can be a parent's object or their own object.
+    ==> obj.hasOwnProperty('property name') ==> If the property name is the Object's property, return it true but otherwise false.
+    ==> Enumerable ==> The properties that can be output with for/of, for/in loop are called enumerable.
+    ==> obj.propertyIsEnumerable('property name') ==> Check if the property is enumerable or not.
+
+Enumerating Properties
+    ==> Enumerable ==> The properties that can be output with for/of, for/in loop are called enumerable.
+
+    There are four functions you can use to get an array of property names:
+    ==> Object.keys() ==> It does not include non-enumerable properties, inherited properties, or properties whose name is a Symbol.
+    ==> Object.getOwnPropertyNames() ==> returns an array of the names of nonenumerable own properties as well, as long as their names are strings.
+    ==> Object.getOwnPropertySymbols() ==> returns own properties whose names are Symbols, whether or not they are enumerable.
+    ==> Reflect.ownKeys() ==> returns all own property names, both enumerable and non-enumerable, and both string and Symbol.
+
+Extending Objects
+    ==> Extending objects in JavaScript refers to adding or modifying properties and methods of an existing object type.
+    ==> Object.assign() ==> This copies the values of all enumerable own properties from one or more source objects to a target object.
+                        ==> Object.assign(target, source,...); ==> Only modified the target object.
+                        ==> Return value ==> It returns the modified target object after merging the properties from the source object(s) into it.
+
+    ==> Spread operator('...') ==> o = {...defaults, ...o}; ==> It is same like Object.assign().
+                               ==> Return value ==> It returns a new object containing the merged properties from both defaults and o.
+
+    ==> Deep clone ==> let deepClone = JSON.parse(JSON.stringify(obj)); ==> It is spread the object reference.
+
+Serializing Objects
+    ==> Object serialization is the process of converting an object’s state to a string from which it can later be restored.
+    ==> Object ==> String ==> serialize
+    ==> String ==> Object ==> deserialize
+    ==> JSON.stringify() ==> Object ==> String ==> not include methods, Map, can't be recursive.
+
+Object Methods vs Functions
+    ==> Functions ==>  Functions are standalone blocks of code that can be invoked independently and there is no context information.
+    ==> Methods ==> Method is a function that is associated with an object or a class.(e.g. Object.doSomething())
+
+---------------------------------------------------------------------------------------------------
+
+Day_15
+---------
+Arrays
+    ==> Multidimensional Arrays
+        ==>JavaScript does not support true multidimensional arrays, but you can approximate them with arrays of arrays.
+        ==> Same rows and columns are true multidimensional arrays and Each inner array can be of different sizes in arrays of arrays.
+
+
+
+
+
+
+
+
+
+
